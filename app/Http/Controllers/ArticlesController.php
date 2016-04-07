@@ -16,7 +16,7 @@ class ArticlesController extends Controller
     public function index(){
     	$articles = DB::table('xg4ut_k2_items AS items')
                     ->join('xg4ut_k2_categories AS categories', 'items.catid', '=', 'categories.id')
-                    ->select('items.title', 'items.introtext', 'categories.name', 'items.extra_fields_search','items.created')
+                    ->select('items.id','items.title', 'items.introtext', 'categories.name', 'items.extra_fields_search','items.image_credits','items.created', 'image_caption')
                     ->orderBy('items.id', 'desc')
                     ->take(50)
                     ->get();  
@@ -28,7 +28,7 @@ class ArticlesController extends Controller
     public function show($id){
     	$article = DB::table('xg4ut_k2_items AS items')
                     ->join('xg4ut_k2_categories AS categories', 'items.catid', '=', 'categories.id')
-                    ->select('items.title', 'items.introtext', 'categories.name', 'items.extra_fields_search', 'items.created')
+                    ->select('items.id','items.title', 'items.introtext', 'categories.name', 'items.extra_fields_search', 'items.image_credits', 'items.created', 'image_caption')
                     ->orderBy('items.id', 'desc')
                     ->where('items.id','=',$id)
                     ->first();
