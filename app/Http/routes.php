@@ -32,4 +32,5 @@ Route::group(['middleware' => ['web']], function () {
 
 Route::group(['middleware' => 'cors', 'prefix' => '/'], function(){
 	Route::resource('articles', 'ArticlesController');
+	Route::resource('legends', 'LegendsController');
 });
