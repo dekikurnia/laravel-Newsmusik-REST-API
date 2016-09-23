@@ -10,7 +10,7 @@ use App\Article;
 use DB;
 use Response;
 
-class LegendsController extends Controller
+class MoviesTVController extends Controller
 {
     
     public function index(){
@@ -18,7 +18,7 @@ class LegendsController extends Controller
                     ->join('xg4ut_k2_categories AS categories', 'items.catid', '=', 'categories.id')
                     ->select('items.id','items.title', 'items.introtext', 'categories.name', 'items.extra_fields_search','items.image_credits','items.created', 'image_caption')
                     ->orderBy('created', 'desc')
-                    ->where('categories.name', '=', 'Legend')
+                    ->where('categories.name', '=', 'Movies and TV')
                     ->get();  
     	return Response::json([
     		'data' => $articles

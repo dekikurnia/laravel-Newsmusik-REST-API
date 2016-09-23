@@ -33,4 +33,15 @@ Route::group(['middleware' => ['web']], function () {
 Route::group(['middleware' => 'cors', 'prefix' => '/'], function(){
 	Route::resource('articles', 'ArticlesController');
 	Route::resource('legends', 'LegendsController');
+	Route::resource('news', 'NewsController');
+	Route::resource('male', 'MaleController');
+	Route::resource('female', 'FemaleController');
+	Route::resource('group-band', 'GroupBandController');
+	Route::resource('exclusive-story', 'ExclusiveStoryController');
+	Route::resource('exclusive-interview', 'ExclusiveInterviewController');
+	Route::resource('backstage-story', 'BackstageStoryController');
+	Route::resource('fashion', 'FashionController');
+	Route::resource('event-organizer', 'EventOrganizerController');
+	Route::resource('albums', 'AlbumsController');
+	Route::resource('movies-tv', 'MoviesTVController');
 });

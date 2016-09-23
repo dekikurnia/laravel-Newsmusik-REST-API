@@ -10,15 +10,16 @@ use App\Article;
 use DB;
 use Response;
 
-class LegendsController extends Controller
+class AlbumsController extends Controller
 {
     
     public function index(){
     	$articles = DB::table('xg4ut_k2_items AS items')
                     ->join('xg4ut_k2_categories AS categories', 'items.catid', '=', 'categories.id')
                     ->select('items.id','items.title', 'items.introtext', 'categories.name', 'items.extra_fields_search','items.image_credits','items.created', 'image_caption')
-                    ->orderBy('created', 'desc')
-                    ->where('categories.name', '=', 'Legend')
+                    ->orderBy('items.id', 'desc')
+                    ->where('categories.name', '=', 'Albums')
+                    ->take(50)
                     ->get();  
     	return Response::json([
     		'data' => $articles

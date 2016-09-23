@@ -17,8 +17,7 @@ class ArticlesController extends Controller
     	$articles = DB::table('xg4ut_k2_items AS items')
                     ->join('xg4ut_k2_categories AS categories', 'items.catid', '=', 'categories.id')
                     ->select('items.id','items.title', 'items.introtext', 'categories.name', 'items.extra_fields_search','items.image_credits','items.created', 'image_caption')
-                    ->orderBy('items.id', 'desc')
-                    ->take(50)
+                    ->orderBy('created', 'desc')
                     ->get();  
     	return Response::json([
     		'data' => $articles
@@ -44,5 +43,6 @@ class ArticlesController extends Controller
     		'data' => $article
     		], 200);
     }
+
 
 }
